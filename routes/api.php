@@ -15,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => ['api.auth']], function () {
-    Route::get('login', 'UserController@index');
+    Route::get('login/{token}', 'UserController@index');
+    Route::get('generate/{token}/{email}', 'UserController@sendToken');
+    Route::get('sendEmail/{email}/{token}', 'UserController@email');
+    Route::post('register', 'UserController@register');
 });
 
 
