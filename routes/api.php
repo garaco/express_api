@@ -19,6 +19,9 @@ Route::group(['middleware' => ['api.auth']], function () {
     Route::get('generate/{token}/{email}', 'UserController@sendToken');
     Route::get('sendEmail/{email}/{token}', 'UserController@email');
     Route::post('register', 'UserController@register');
+    Route::post('edit/user', 'UserController@Edit');
+
+    Route::post('save/orde', 'OrdeController@save');
 });
 
 

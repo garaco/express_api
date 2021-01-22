@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Services extends Model
+class Direction extends Model
 {
     public $timestamps = false;
-    protected $table = 'services';
+    protected $table = 'direction';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'services', 
-        'document'
+        'id_user', 
+        'direction',
+        'location',
     ];
 }

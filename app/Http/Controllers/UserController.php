@@ -94,4 +94,28 @@ class UserController extends Controller
         $response['row']['data']['message']='email enviado';  
         return Response::JSON($response);
     }
+
+    public function Edit(Request $request){
+        $query=Users::where('id', '=', $request->input('id'))->first();
+        if(isset($query)){
+
+            $query->phone=$request->input('phone');
+            $query->email=$request->input('email');
+            $query->name=$request->input('name');
+            $query->surname=$request->input('surname');
+            $query->direction=$request->input('direction');
+            $query->location=$request->input('location');
+            $query->save();
+
+            $result=Users::where('id', '=', $request->input('id'))->first();
+            
+            $response['row']['data']['message']= 'Guardado Correctamente';
+            $response['row']['data']['user']= $result;
+        }else{
+            $response['row']['data']['message']= 'No se Encontro el usuario';
+            $response['row']['data']['user']= '';
+        }
+
+        return Response::JSON($response);
+    }
 }
