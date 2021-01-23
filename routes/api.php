@@ -23,6 +23,7 @@ Route::group(['middleware' => ['api.auth']], function () {
     Route::post('save/orde', 'OrdeController@save');
     Route::post('save/market', 'MarketController@save');
     Route::post('save/service', 'ServiceController@save');
+    Route::get('list/all/{id}', 'OrdeController@listAll');
 });
 
 

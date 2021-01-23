@@ -35,4 +35,18 @@ class OrdeController extends Controller
     
     return Response::JSON($response);
     }
+
+    public function listAll(Request $request, $id){
+        $result = DB::select("Select * from
+        ((SELECT 'Mandado' as tipo, id, status, payment, create_at from orders where id_user = $id)
+        UNION ALL
+        (SELECT 'Compra' as tipo, id, status, payment, create_at from market where id_user = $id)
+        UNION ALL
+        (SELECT 'Servicio' as tipo, id, status, payment, create_at from services where id_user = $id)) as oms
+        ORDER BY oms.create_at desc"); 
+
+        $response['row']['data']=$result;
+
+        return Response::JSON($response);
+    }
 }
