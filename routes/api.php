@@ -20,8 +20,9 @@ Route::group(['middleware' => ['api.auth']], function () {
     Route::get('sendEmail/{email}/{token}', 'UserController@email');
     Route::post('register', 'UserController@register');
     Route::post('edit/user', 'UserController@Edit');
-
     Route::post('save/orde', 'OrdeController@save');
+    Route::post('save/market', 'MarketController@save');
+    Route::post('save/service', 'ServiceController@save');
 });
 
 

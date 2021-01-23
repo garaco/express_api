@@ -14,6 +14,8 @@ class Market extends Model
         'list',
         'payment',
         'direction',
-        'location'
+        'location',
+        'status',
+        'id_user'
     ];
 }
