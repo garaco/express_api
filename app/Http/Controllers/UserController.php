@@ -118,4 +118,25 @@ class UserController extends Controller
 
         return Response::JSON($response);
     }
+
+    public function EditDir(Request $request){
+        $query=Users::where('id', '=', $request->input('id'))->first();
+        if(isset($query)){
+            
+            $query->direction=$request->input('direction');
+            $query->location=$request->input('location');
+            $query->save();
+
+            $result=Users::where('id', '=', $request->input('id'))->first();
+            
+            $response['row']['data']['message']= 'Guardado Correctamente';
+            $response['row']['data']['user']= $result;
+        }else{
+            $response['row']['data']['message']= 'No se Encontro el usuario';
+            $response['row']['data']['user']= '';
+        }
+
+        return Response::JSON($response);
+    }
+
 }

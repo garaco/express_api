@@ -20,10 +20,15 @@ Route::group(['middleware' => ['api.auth']], function () {
     Route::get('sendEmail/{email}/{token}', 'UserController@email');
     Route::post('register', 'UserController@register');
     Route::post('edit/user', 'UserController@Edit');
+    Route::post('edit/user/address', 'UserController@EditDir');
     Route::post('save/orde', 'OrdeController@save');
     Route::post('save/market', 'MarketController@save');
     Route::post('save/service', 'ServiceController@save');
     Route::get('list/all/{id}', 'OrdeController@listAll');
+    Route::post('direction/add', 'DirectionController@add');
+    Route::get('direction/{id}', 'DirectionController@getByid');
+    Route::post('direction/edit', 'DirectionController@edit');
+    Route::post('direction/delete', 'DirectionController@delete');
 });
 
 
