@@ -4,16 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Notification extends Model
+class TokenModel extends Model
 {
     public $timestamps = false;
-    protected $table = 'notificaction';
+    protected $table = 'user_firebase';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'title', 
-        'message',
-        'id_user',
-        'leido',
-        'type'
+        'id_user', 
+        'token_firebase'
     ];
 }

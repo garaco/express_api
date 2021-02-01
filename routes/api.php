@@ -29,6 +29,10 @@ Route::group(['middleware' => ['api.auth']], function () {
     Route::get('direction/{id}', 'DirectionController@getByid');
     Route::post('direction/edit', 'DirectionController@edit');
     Route::post('direction/delete', 'DirectionController@delete');
+    Route::get('token/{id}/{token}', 'TokenController@generateToken');
+    Route::get('notificacion/{id}', 'NotificationController@getNotificacion');
+    Route::get('notificacion/count/{id}', 'NotificationController@getCount');
+    Route::get('notificacion/leidos/{id}', 'NotificationController@leidos');
 });
 
 
